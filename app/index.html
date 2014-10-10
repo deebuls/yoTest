@@ -23,15 +23,23 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div ng-controller="MainCtrl" dc-chart="pieChart" dc-chart-group="1"
-             dc-width="780" dc-height="480" dc-inner-radius="100"
-             dc-slices-cap="4"
-             dc-dimension="runDimension" dc-group="speedSumGroup"
-             dc-legend="dc.legend()"></div>
+      
+      <span ng-controller="MainCtrl" dc-chart="pieChart" 
+             dc-width="200" dc-height="200" dc-inner-radius="10"
+             dc-dimension="yearDim" dc-group="spendPerYear"
+             dc-legend="dc.legend()"></span>
+
+      <div ng-controller="MainCtrl" dc-chart="barChart" 
+             dc-width="300" dc-height="200" 
+             dc-dimension="spendDim" dc-group="spendHist"
+             dc-legend="dc.legend()"
+             dc-x = "d3.scale.linear().domain([0,10])"
+             dc-elasticY = "true"></div>
+
 
       <div ng-controller="MainCtrl" dc-chart="rowChart" dc-chart-group="1"
-             dc-width="780" dc-height="480" 
-             dc-dimension="runDimension" dc-group="speedSumGroup"
+             dc-width="350" dc-height="200" 
+             dc-dimension="nameDim" dc-group="spendPerName"
              dc-legend="dc.legend()"
              dc-elasticX = "true"></div>
 
