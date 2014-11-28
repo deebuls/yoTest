@@ -22,14 +22,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div ng-controller="MainCtrl" class="container ng-scope">
       
-      <span ng-controller="MainCtrl" dc-chart="pieChart" 
+      <div  dc-chart="pieChart" 
              dc-width="200" dc-height="200" dc-inner-radius="10"
              dc-dimension="yearDim" dc-group="spendPerYear"
-             dc-legend="dc.legend()"></span>
+             dc-legend="dc.legend()"
+             class="ng-scope"></div>
 
-      <div ng-controller="MainCtrl" dc-chart="barChart" 
+      <div dc-chart="barChart" 
              dc-width="300" dc-height="200" 
              dc-dimension="spendDim" dc-group="spendHist"
              dc-legend="dc.legend()"
@@ -37,7 +38,7 @@
              dc-elasticY = "true"></div>
 
 
-      <div ng-controller="MainCtrl" dc-chart="rowChart" dc-chart-group="1"
+      <div  dc-chart="rowChart" dc-chart-group="1"
              dc-width="350" dc-height="200" 
              dc-dimension="nameDim" dc-group="spendPerName"
              dc-legend="dc.legend()"

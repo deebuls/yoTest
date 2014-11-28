@@ -16,7 +16,7 @@ angular.module('yoTestApp')
     ];
 
 
-  var spendData = [
+ $scope.spendData = [
         {Name: 1, Spent: 40, Year: 2011},
           {Name: 1, Spent: 10, Year: 2011},
           {Name: 1, Spent: 40, Year: 2011},
@@ -27,7 +27,11 @@ angular.module('yoTestApp')
         ];
 
             // in the controller, we only keep data modeling (or better, delegate to a service)
-     var ndx = crossfilter(spendData)
+    var s = $scope;
+
+    var ndx = s.ndx = crossfilter(s.spendData);
+    var all = s.all = ndx.groupAll();
+    
           $scope.yearDim = ndx.dimension(function(d) {return +d.Year;})
           $scope.spendDim = ndx.dimension(function(d) {return Math.floor(d.Spent/10);})
           $scope.nameDim = ndx.dimension(function(d)  {return d.Name;})
@@ -35,5 +39,6 @@ angular.module('yoTestApp')
           $scope.spendPerName = $scope.nameDim.group().reduceSum(function(d) {return +d.Spent;})
           $scope.spendHist = $scope.spendDim.group().reduceCount();
 
-          $scope.ndx = ndx;
+          $scope.$apply();
+
   });
