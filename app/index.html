@@ -23,7 +23,8 @@
 
     <!-- Add your site or application content here -->
     <div ng-controller="MainCtrl" class="container ng-scope">
-      
+  
+      <input type=text ng-model="year" placeholder="enter the year`" />
       <div  dc-chart="pieChart" 
              dc-width="200" dc-height="200" dc-inner-radius="10"
              dc-dimension="yearDim" dc-group="spendPerYear"
@@ -38,7 +39,7 @@
              dc-elasticY = "true"></div>
 
 
-      <div  dc-chart="rowChart" dc-chart-group="1"
+      <div  dc-chart="rowChart"
              dc-width="350" dc-height="200" 
              dc-dimension="nameDim" dc-group="spendPerName"
              dc-legend="dc.legend()"

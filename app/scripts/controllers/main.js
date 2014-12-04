@@ -32,13 +32,13 @@ angular.module('yoTestApp')
     var ndx = s.ndx = crossfilter(s.spendData);
     var all = s.all = ndx.groupAll();
     
-          $scope.yearDim = ndx.dimension(function(d) {return +d.Year;})
-          $scope.spendDim = ndx.dimension(function(d) {return Math.floor(d.Spent/10);})
-          $scope.nameDim = ndx.dimension(function(d)  {return d.Name;})
-          $scope.spendPerYear = $scope.yearDim.group().reduceSum(function(d) {return +d.Spent;})
-          $scope.spendPerName = $scope.nameDim.group().reduceSum(function(d) {return +d.Spent;})
-          $scope.spendHist = $scope.spendDim.group().reduceCount();
+    $scope.yearDim = ndx.dimension(function(d) {return +d.Year;})
+    $scope.spendDim = ndx.dimension(function(d) {return Math.floor(d.Spent/10);})
+    $scope.nameDim = ndx.dimension(function(d)  {return d.Name;})
+    $scope.spendPerYear = $scope.yearDim.group().reduceSum(function(d) {return +d.Spent;})
+    $scope.spendPerName = $scope.nameDim.group().reduceSum(function(d) {return +d.Spent;})
+    $scope.spendHist = $scope.spendDim.group().reduceCount();
 
-          $scope.$apply();
+    $scope.$apply();
 
-  });
+});
